@@ -1,361 +1,361 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>AI API 中转服务 | Canadian-Hosted</title>
- <style>
- * { margin: 0; padding: 0; box-sizing: border-box; }
- body {
- font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
- background: #0a0a0f;
- color: #e4e4e7;
- line-height: 1.6;
- min-height: 100vh;
- }
- .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
- header {
- padding: 48px 0 32px;
- text-align: center;
- }
- header .badge {
- display: inline-block;
- background: rgba(59, 130, 246, 0.15);
- color: #60a5fa;
- padding: 6px 16px;
- border-radius: 20px;
- font-size: 13px;
- font-weight: 500;
- margin-bottom: 16px;
- border: 1px solid rgba(59, 130, 246, 0.3);
- }
- header h1 {
- font-size: 42px;
- font-weight: 800;
- background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
- margin-bottom: 12px;
- }
- header p {
- font-size: 18px;
- color: #71717a;
- max-width: 540px;
- margin: 0 auto;
- }
- .features {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
- gap: 16px;
- margin: 40px 0;
- }
- .feature {
- background: rgba(255,255,255,0.03);
- border: 1px solid rgba(255,255,255,0.08);
- border-radius: 12px;
- padding: 20px;
- text-align: center;
- }
- .feature .icon { font-size: 28px; margin-bottom: 8px; }
- .feature .title { font-size: 14px; font-weight: 600; color: #e4e4e7; }
- .feature .desc { font-size: 12px; color: #71717a; margin-top: 4px; }
- .pricing-section { margin: 48px 0; }
- .pricing-section h2 {
- font-size: 28px;
- font-weight: 700;
- text-align: center;
- margin-bottom: 32px;
- }
- .pricing-table {
- width: 100%;
- border-collapse: collapse;
- background: rgba(255,255,255,0.02);
- border-radius: 16px;
- overflow: hidden;
- border: 1px solid rgba(255,255,255,0.06);
- }
- .pricing-table thead {
- background: rgba(59, 130, 246, 0.1);
- }
- .pricing-table th {
- padding: 16px 20px;
- text-align: left;
- font-size: 13px;
- font-weight: 600;
- color: #a1a1aa;
- text-transform: uppercase;
- letter-spacing: 0.05em;
- border-bottom: 1px solid rgba(255,255,255,0.06);
- }
- .pricing-table td {
- padding: 14px 20px;
- font-size: 14px;
- border-bottom: 1px solid rgba(255,255,255,0.04);
- }
- .pricing-table tr:last-child td { border-bottom: none; }
- .pricing-table tr:hover { background: rgba(255,255,255,0.02); }
- .pricing-table .model-name { font-weight: 600; color: #e4e4e7; }
- .pricing-table .badge {
- display: inline-block;
- padding: 2px 8px;
- border-radius: 6px;
- font-size: 11px;
- font-weight: 600;
- }
- .badge-new { background: rgba(34,197,94,0.15); color: #4ade80; }
- .badge-hot { background: rgba(234,179,8,0.15); color: #fbbf24; }
- .badge-free { background: rgba(59,130,246,0.15); color: #60a5fa; }
- .price { font-weight: 700; color: #e4e4e7; }
- .price-note { font-size: 11px; color: #71717a; }
- .how-to { margin: 48px 0; }
- .how-to h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 32px; }
- .steps {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
- gap: 20px;
- }
- .step {
- background: rgba(255,255,255,0.03);
- border: 1px solid rgba(255,255,255,0.08);
- border-radius: 16px;
- padding: 28px 24px;
- }
- .step-num {
- display: inline-flex;
- align-items: center;
- justify-content: center;
- width: 36px;
- height: 36px;
- background: linear-gradient(135deg, #3b82f6, #8b5cf6);
- border-radius: 10px;
- font-weight: 800;
- font-size: 16px;
- margin-bottom: 16px;
- }
- .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
- .step p { font-size: 13px; color: #71717a; }
- .step code {
- display: block;
- background: rgba(0,0,0,0.3);
- border: 1px solid rgba(255,255,255,0.1);
- border-radius: 8px;
- padding: 10px 14px;
- font-size: 12px;
- color: #a78bfa;
- margin-top: 10px;
- word-break: break-all;
- }
- .payment { margin: 48px 0; text-align: center; }
- .payment h2 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
- .payment p { color: #71717a; margin-bottom: 32px; font-size: 15px; }
- .payment-grid {
- display: flex;
- gap: 16px;
- justify-content: center;
- flex-wrap: wrap;
- }
- .payment-btn {
- display: inline-flex;
- align-items: center;
- gap: 10px;
- padding: 16px 28px;
- border-radius: 12px;
- font-size: 15px;
- font-weight: 600;
- text-decoration: none;
- transition: all 0.2s;
- border: 1px solid rgba(255,255,255,0.1);
- background: rgba(255,255,255,0.05);
- color: #e4e4e7;
- }
- .payment-btn:hover {
- background: rgba(255,255,255,0.1);
- border-color: rgba(255,255,255,0.2);
- transform: translateY(-2px);
- }
- .payment-btn .icon { font-size: 22px; }
- .payment-note {
- font-size: 12px;
- color: #52525b;
- margin-top: 16px;
- }
- .comparison { margin: 48px 0; }
- .comparison h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 32px; }
- .comp-table {
- width: 100%;
- border-collapse: collapse;
- border-radius: 16px;
- overflow: hidden;
- border: 1px solid rgba(255,255,255,0.06);
- }
- .comp-table th, .comp-table td {
- padding: 14px 20px;
- font-size: 14px;
- text-align: center;
- border-bottom: 1px solid rgba(255,255,255,0.04);
- }
- .comp-table th { background: rgba(255,255,255,0.03); font-weight: 600; color: #a1a1aa; }
- .comp-table td:first-child { text-align: left; font-weight: 500; }
- .comp-table .highlight { color: #4ade80; font-weight: 700; }
- .comp-table .us { color: #71717a; }
- footer {
- border-top: 1px solid rgba(255,255,255,0.06);
- padding: 32px 0;
- text-align: center;
- margin-top: 48px;
- }
- footer p { font-size: 13px; color: #52525b; }
- footer a { color: #60a5fa; text-decoration: none; }
- .faq { margin: 48px 0; }
- .faq h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 32px; }
- .faq-item {
- background: rgba(255,255,255,0.02);
- border: 1px solid rgba(255,255,255,0.06);
- border-radius: 12px;
- padding: 20px 24px;
- margin-bottom: 12px;
- }
- .faq-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #e4e4e7; }
- .faq-item p { font-size: 13px; color: #71717a; }
- @media (max-width: 640px) {
- header h1 { font-size: 30px; }
- header p { font-size: 15px; }
- .pricing-table { font-size: 12px; }
- .pricing-table th, .pricing-table td { padding: 10px 12px; }
- .payment-btn { padding: 12px 20px; font-size: 13px; }
- }
- </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI API 中转服务</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0f;
+      color: #e4e4e7;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    header {
+      padding: 48px 0 32px;
+      text-align: center;
+    }
+    header .badge {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    header h1 {
+      font-size: 42px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    header p {
+      font-size: 18px;
+      color: #71717a;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 40px 0;
+    }
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .feature .icon { font-size: 28px; margin-bottom: 8px; }
+    .feature .title { font-size: 14px; font-weight: 600; color: #e4e4e7; }
+    .feature .desc { font-size: 12px; color: #71717a; margin-top: 4px; }
+    .pricing-section { margin: 48px 0; }
+    .pricing-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.02);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .pricing-table thead {
+      background: rgba(59, 130, 246, 0.1);
+    }
+    .pricing-table th {
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pricing-table td {
+      padding: 14px 20px;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .pricing-table tr:last-child td { border-bottom: none; }
+    .pricing-table tr:hover { background: rgba(255,255,255,0.02); }
+    .pricing-table .model-name { font-weight: 600; color: #e4e4e7; }
+    .pricing-table .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .badge-new { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .badge-hot { background: rgba(234,179,8,0.15); color: #fbbf24; }
+    .badge-free { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .price { font-weight: 700; color: #e4e4e7; }
+    .price-note { font-size: 11px; color: #71717a; }
+    .how-to { margin: 48px 0; }
+    .how-to h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 32px; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .step {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 24px;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 13px; color: #71717a; }
+    .step code {
+      display: block;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #a78bfa;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+    .payment { margin: 48px 0; text-align: center; }
+    .payment h2 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+    .payment p { color: #71717a; margin-bottom: 32px; font-size: 15px; }
+    .payment-grid {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .payment-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: #e4e4e7;
+    }
+    .payment-btn:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+    .payment-btn .icon { font-size: 22px; }
+    .payment-note {
+      font-size: 12px;
+      color: #52525b;
+      margin-top: 16px;
+    }
+    .comparison { margin: 48px 0; }
+    .comparison h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 32px; }
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .comp-table th, .comp-table td {
+      padding: 14px 20px;
+      font-size: 14px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .comp-table th { background: rgba(255,255,255,0.03); font-weight: 600; color: #a1a1aa; }
+    .comp-table td:first-child { text-align: left; font-weight: 500; }
+    .comp-table .highlight { color: #4ade80; font-weight: 700; }
+    .comp-table .us { color: #71717a; }
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+      margin-top: 48px;
+    }
+    footer p { font-size: 13px; color: #52525b; }
+    footer a { color: #60a5fa; text-decoration: none; }
+    .faq { margin: 48px 0; }
+    .faq h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 32px; }
+    .faq-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .faq-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #e4e4e7; }
+    .faq-item p { font-size: 13px; color: #71717a; }
+    @media (max-width: 640px) {
+      header h1 { font-size: 30px; }
+      header p { font-size: 15px; }
+      .pricing-table { font-size: 12px; }
+      .pricing-table th, .pricing-table td { padding: 10px 12px; }
+      .payment-btn { padding: 12px 20px; font-size: 13px; }
+    }
+  </style>
 </head>
 <body>
 
 <header>
- <div class="container">
- <div class="badge">🇨🇦 加拿大合规运营 · PIPEDA 隐私保护</div>
- <h1>AI API 中转服务</h1>
- <p>低于官方价格，稳定高速，支持 OpenAI / Claude / Gemini / DeepSeek 等所有主流模型</p>
- </div>
+  <div class="container">
+    <div class="badge">稳定高速 · 低于官方价</div>
+    <h1>AI API 中转服务</h1>
+    <p>支持 OpenAI / Claude / Gemini / DeepSeek 等所有主流模型，无需科学上网</p>
+  </div>
 </header>
 
 <div class="container">
- <div class="features">
- <div class="feature">
- <div class="icon">⚡</div>
- <div class="title">极速响应</div>
- <div class="desc">加拿大/美国节点部署</div>
- </div>
- <div class="feature">
- <div class="icon">💰</div>
- <div class="title">低于官方价</div>
- <div class="desc">最高节省 40% 成本</div>
- </div>
- <div class="feature">
- <div class="icon">🔒</div>
- <div class="title">隐私合规</div>
- <div class="desc">符合 PIPEDA / BC PIPA</div>
- </div>
- <div class="feature">
- <div class="icon">📊</div>
- <div class="title">透明计费</div>
- <div class="desc">按量计费，无月费无隐藏费</div>
- </div>
- </div>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">⚡</div>
+      <div class="title">极速响应</div>
+      <div class="desc">海外节点部署</div>
+    </div>
+    <div class="feature">
+      <div class="icon">💰</div>
+      <div class="title">低于官方价</div>
+      <div class="desc">最高节省 40% 成本</div>
+    </div>
+    <div class="feature">
+      <div class="icon">🔒</div>
+      <div class="title">稳定可靠</div>
+      <div class="desc">企业级 SLA 保障</div>
+    </div>
+    <div class="feature">
+      <div class="icon">📊</div>
+      <div class="title">透明计费</div>
+      <div class="desc">按量计费，无月费</div>
+    </div>
+  </div>
 
- <div class="pricing-section">
- <h2>📋 定价表（CAD · 加元）</h2>
- <table class="pricing-table">
- <thead>
- <tr>
- <th>模型</th>
- <th>输入 / 百万 Token</th>
- <th>输出 / 百万 Token</th>
- <th>备注</th>
- </tr>
- </thead>
- <tbody>
- <tr>
- <td class="model-name">GPT-4o-mini <span class="badge badge-hot">热门</span></td>
- <td><span class="price">$0.29 CAD</span><br><span class="price-note">vs 官方 $0.42</span></td>
- <td><span class="price">$1.16 CAD</span><br><span class="price-note">vs 官方 $1.64</span></td>
- <td>性价比最高</td>
- </tr>
- <tr>
- <td class="model-name">GPT-4o</td>
- <td><span class="price">$3.47 CAD</span><br><span class="price-note">vs 官方 $4.91</span></td>
- <td><span class="price">$13.87 CAD</span><br><span class="price-note">vs 官方 $19.64</span></td>
- <td>最新 GPT-4</td>
- </tr>
- <tr>
- <td class="model-name">Claude 3.5 Sonnet <span class="badge badge-hot">热门</span></td>
- <td><span class="price">$4.16 CAD</span><br><span class="price-note">vs 官方 $5.91</span></td>
- <td><span class="price">$20.79 CAD</span><br><span class="price-note">vs 官方 $29.53</span></td>
- <td>最强推理能力</td>
- </tr>
- <tr>
- <td class="model-name">Gemini 1.5 Flash <span class="badge badge-new">新</span></td>
- <td><span class="price">$0.14 CAD</span><br><span class="price-note">vs 官方 $0.20</span></td>
- <td><span class="price">$0.56 CAD</span><br><span class="price-note">vs 官方 $0.79</span></td>
- <td>超低价大批量</td>
- </tr>
- <tr>
- <td class="model-name">DeepSeek-V3 <span class="badge badge-free">推荐</span></td>
- <td><span class="price">$0.19 CAD</span><br><span class="price-note">vs 官方 $0.27</span></td>
- <td><span class="price">$0.56 CAD</span><br><span class="price-note">vs 官方 $0.79</span></td>
- <td>国产最强模型</td>
- </tr>
- <tr>
- <td class="model-name">Llama 3.1 70B (Groq)</td>
- <td><span class="price">$0.08 CAD</span><br><span class="price-note">Groq 高速版</span></td>
- <td><span class="price">$0.16 CAD</span><br><span class="price-note">Groq 高速版</span></td>
- <td>免费额度充足</td>
- </tr>
- </tbody>
- </table>
- <p style="text-align:center; margin-top:16px; font-size:13px; color:#71717a;">
- 所有价格已含 GST/HST · CAD 加元结算 · 实时汇率
- </p>
- </div>
+  <div class="pricing-section">
+    <h2>📋 定价表（人民币 · RMB）</h2>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>模型</th>
+          <th>输入 / 百万 Token</th>
+          <th>输出 / 百万 Token</th>
+          <th>备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="model-name">GPT-4o-mini <span class="badge badge-hot">热门</span></td>
+          <td><span class="price">¥1.6</span><br><span class="price-note">成本 ¥1.1</span></td>
+          <td><span class="price">¥6.4</span><br><span class="price-note">成本 ¥4.5</span></td>
+          <td>性价比最高</td>
+        </tr>
+        <tr>
+          <td class="model-name">GPT-4o</td>
+          <td><span class="price">¥19</span><br><span class="price-note">成本 ¥14</span></td>
+          <td><span class="price">¥76</span><br><span class="price-note">成本 ¥56</span></td>
+          <td>最新 GPT-4</td>
+        </tr>
+        <tr>
+          <td class="model-name">Claude 3.5 Sonnet <span class="badge badge-hot">热门</span></td>
+          <td><span class="price">¥23</span><br><span class="price-note">成本 ¥17</span></td>
+          <td><span class="price">¥114</span><br><span class="price-note">成本 ¥85</span></td>
+          <td>最强推理能力</td>
+        </tr>
+        <tr>
+          <td class="model-name">Gemini 1.5 Flash <span class="badge badge-new">新</span></td>
+          <td><span class="price">¥0.8</span><br><span class="price-note">成本 ¥0.5</span></td>
+          <td><span class="price">¥3.2</span><br><span class="price-note">成本 ¥2.2</span></td>
+          <td>超低价大批量</td>
+        </tr>
+        <tr>
+          <td class="model-name">DeepSeek-V3 <span class="badge badge-free">推荐</span></td>
+          <td><span class="price">¥1.1</span><br><span class="price-note">成本 ¥0.8</span></td>
+          <td><span class="price">¥3.2</span><br><span class="price-note">成本 ¥1.8</span></td>
+          <td>国产最强模型</td>
+        </tr>
+        <tr>
+          <td class="model-name">Llama 3.1 70B</td>
+          <td><span class="price">¥0.5</span><br><span class="price-note">成本 ¥0.3</span></td>
+          <td><span class="price">¥1.0</span><br><span class="price-note">成本 ¥0.6</span></td>
+          <td>开源免费额度</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="text-align:center; margin-top:16px; font-size:13px; color:#71717a;">
+      汇率：1 USD ≈ 7.3 RMB · 按量计费 · 实时扣费
+    </p>
+  </div>
 
- <div class="comparison">
- <h2>⚔️ 与官方对比</h2>
- <table class="comp-table">
- <thead>
- <tr>
- <th></th>
- <th class="highlight">我们</th>
- <th>OpenAI 官方</th>
- <th>Azure OpenAI</th>
- </tr>
- </thead>
- <tbody>
- <tr>
- <td>GPT-4o-mini 输入</td>
- <td class="highlight">$0.29 CAD</td>
- <td class="us">$0.42 CAD</td>
- <td class="us">$0.42 CAD</td>
- </tr>
- <tr>
- <td>Claude 3.5 Sonnet 输入</td>
- <td class="highlight">$4.16 CAD</td>
- <td class="us">$5.91 CAD</td>
- <td class="us">$5.91 CAD</td>
- </tr>
- <tr>
- <td>开通方式</td>
- <td class="highlight">信用卡/微信直接充值</td>
- <td class="us">需国际信用卡</td>
- <td class="us">企业账户+审批</td>
- </tr>
- <tr>
- <td>发票</td>
- <td class="highlight">✅ 可开正规发票</td>
- <td class="us">❌ 无</td>
- <td class="us">❌ 企业发票</td>
- </tr>
- <tr>
- <td>多模型聚合</td>
- <td class="highlight">✅ 一个 API 用全部</td>
- <td class="us">❌ 需分别注册</td>
- <td class="us">❌ 仅 OpenAI</td>
- </tr>
- 
+  <div class="comparison">
+    <h2>⚔️ 与官方对比</h2>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="highlight">我们</th>
+          <th>OpenAI 官方</th>
+          <th>直接使用</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GPT-4o-mini 输入</td>
+          <td class="highlight">¥1.6</td>
+          <td class="us">¥2.2</td>
+          <td class="us">需国际信用卡</td>
+        </tr>
+        <tr>
+          <td>Claude 3.5 Sonnet 输入</td>
+          <td class="highlight">¥23</td>
+          <td class="us">¥32</td>
+          <td class="us">需海外手机号</td>
+        </tr>
+        <tr>
+          <td>开通方式</td>
+          <td class="highlight">微信/支付宝直接充值</td>
+          <td class="us">需国际信用卡</td>
+          <td class="us">需科学上网</td>
+        </tr>
+        <tr>
+          <td>多模型聚合</td>
+          <td class="highlight">✅ 一个 API 用全部</td>
+          <td class="us">❌ 需分别注册</td>
+          <td class="us">❌ 多个平台</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="how-to">
+    <h2>🚀 快速开始（3分钟接入）
 ...(truncated)...
